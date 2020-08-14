@@ -38,5 +38,5 @@ public class TextBookRequestPost {
 
     public void setNameBookReq(String nameBookReq) { this.nameBookReq = nameBookReq; }
 
-
+    public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
 }
