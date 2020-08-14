@@ -1,7 +1,5 @@
 package com.example.booksharing.model;
 import java.time.OffsetDateTime;
-import java.util.*;
-import java.io.*;
 
 public class TextBookRequestPost {
     private String nameBookReq;
