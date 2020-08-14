@@ -1,4 +1,5 @@
 package com.example.booksharing.model;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.io.*;
 
@@ -7,16 +8,18 @@ public class TextBookRequestPost {
     private String commentBookReq;
     private String locationBookReq;
     private String emailBookReq;
+    private OffsetDateTime createdAt;
 
     public TextBookRequestPost(){
 
     }
-    public TextBookRequestPost(String nameBookReq, String commentBookReq, String locationBookReq, String emailBookReq){
+    public TextBookRequestPost(String nameBookReq, String commentBookReq, String locationBookReq, String emailBookReq, OffsetDateTime createdAt){
         super();
         this.nameBookReq=nameBookReq;
         this.commentBookReq=commentBookReq;
         this.locationBookReq=locationBookReq;
         this.emailBookReq=emailBookReq;
+        this.createdAt = createdAt;
     }
 
     public String getLocationBookReq() {return locationBookReq;}
@@ -26,6 +29,8 @@ public class TextBookRequestPost {
     public String getEmailBookReq() { return emailBookReq;}
 
     public String getNameBookReq() { return nameBookReq;}
+
+    public OffsetDateTime getCreatedAt() { return createdAt; }
 
     public void setCommentBookReq(String commentBookReq) { this.commentBookReq = commentBookReq;}
 
