@@ -7,17 +7,19 @@ public class TextBookRequestPost {
     private String locationBookReq;
     private String emailBookReq;
     private OffsetDateTime createdAt;
+    private String postId;
 
     public TextBookRequestPost(){
 
     }
-    public TextBookRequestPost(String nameBookReq, String commentBookReq, String locationBookReq, String emailBookReq, OffsetDateTime createdAt){
+    public TextBookRequestPost(String nameBookReq, String commentBookReq, String locationBookReq, String emailBookReq, OffsetDateTime createdAt, String postId){
         super();
         this.nameBookReq=nameBookReq;
         this.commentBookReq=commentBookReq;
         this.locationBookReq=locationBookReq;
         this.emailBookReq=emailBookReq;
         this.createdAt = createdAt;
+        this.postId=postId;
     }
 
     public String getLocationBookReq() {return locationBookReq;}
@@ -30,6 +32,8 @@ public class TextBookRequestPost {
 
     public OffsetDateTime getCreatedAt() { return createdAt; }
 
+    public String getPostId() { return postId; }
+
     public void setCommentBookReq(String commentBookReq) { this.commentBookReq = commentBookReq;}
 
     public void setEmailBookReq(String emailBookReq) { this.emailBookReq = emailBookReq; }
@@ -39,4 +43,6 @@ public class TextBookRequestPost {
     public void setNameBookReq(String nameBookReq) { this.nameBookReq = nameBookReq; }
 
     public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
+
+    public void setPostId(String postId) { this.postId = postId; }
 }
