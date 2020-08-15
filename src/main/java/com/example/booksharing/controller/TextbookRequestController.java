@@ -2,6 +2,7 @@ package com.example.booksharing.controller;
 
 import com.example.booksharing.model.TextBookRequestPost;
 import com.example.booksharing.service.TextbookRequestPostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +11,14 @@ import org.springframework.web.client.HttpServerErrorException;
 import java.util.List;
 
 @RestController
-
 public class TextbookRequestController {
 
     private TextbookRequestPostService textbookRequestPostService;
+
+    @Autowired
+    public TextbookRequestController(TextbookRequestPostService textbookRequestPostService){
+        this.textbookRequestPostService = textbookRequestPostService;
+    }
 
     @GetMapping("textbook-request-post/{postId}")
     public ResponseEntity<TextBookRequestPost> getTextbookRequestPost(@PathVariable String postId) throws HttpServerErrorException{

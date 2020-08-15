@@ -1,6 +1,5 @@
 package com.example.booksharing.service;
 
-import com.example.booksharing.model.TextBookDonationPost;
 import com.example.booksharing.model.TextBookRequestPost;
 
 import java.util.List;

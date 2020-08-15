@@ -7,6 +7,7 @@ import com.example.booksharing.repository.TextbookRequestPostRepository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.UUID;
 
 
 @Slf4j
+@Service
 public class TextbookRequestPostServiceImpl implements TextbookRequestPostService {
 
     TextbookRequestPostRepository textbookRequestPostRepository;
-    TextbookRequestMapper textbookRequestMapper;
+    TextbookRequestMapper textbookRequestMapper = new TextbookRequestMapperImpl();
     @Autowired
-    public TextbookRequestPostServiceImpl(TextbookRequestPostRepository textbookRequestPostRepository, TextbookRequestMapper textBookRequestMapper) {
+    public TextbookRequestPostServiceImpl(TextbookRequestPostRepository textbookRequestPostRepository) {
         this.textbookRequestPostRepository = textbookRequestPostRepository;
-        this.textbookRequestMapper = textBookRequestMapper;
     }
 
     @Override

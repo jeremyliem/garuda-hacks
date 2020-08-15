@@ -1,14 +1,14 @@
 package com.example.booksharing.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-
+import org.springframework.stereotype.Repository;
 import java.util.List;
-import java.util.Optional;
 
-public interface TextbookRequestPostRepository extends MongoRepository<TextbookRequestPostEntity, String> {
-
-        List<TextbookRequestPostEntity> findBySearch(String name, String subject, String author);
-        Optional<TextbookRequestPostEntity> findByPostId(String postId);
+@Repository
+public interface TextbookRequestPostRepository{
+        TextbookRequestPostEntity addTextbookRequestPost(TextbookRequestPostEntity textbookRequestPostEntity);
+        List<TextbookRequestPostEntity> findBySearch(String name);
+        TextbookRequestPostEntity findByPostId(String postId);
+        List<TextbookRequestPostEntity> findAll();
         void deleteByPostId(String postId);
 
 }
