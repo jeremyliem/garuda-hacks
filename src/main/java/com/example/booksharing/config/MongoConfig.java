@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.example.booksharing.repository")
+@EnableMongoRepositories
 public class MongoConfig extends AbstractMongoConfiguration {
 
 

@@ -11,7 +11,7 @@ public interface TextbookDonationPostService {
     TextBookDonationPost addTextbookDonationPost(TextBookDonationPost textBookDonationPost);
     List<TextBookDonationPost> getAllTextbookDonationPost();
     void deleteTextbookDonationPost(String postId);
-    Optional<TextBookDonationPost> getTextbookDonationPost(String postId);
+    TextBookDonationPost getTextbookDonationPost(String postId);
     void claimTextbookDonationPost(String postId);
     List<TextBookDonationPost> searchTextbookDonationPost(String name, String subject, String author);
 

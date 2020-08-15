@@ -6,10 +6,8 @@ import com.example.booksharing.repository.TextbookDonationPostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -17,11 +15,10 @@ import java.util.UUID;
 public class TextbookDonationPostServiceImpl implements TextbookDonationPostService {
 
      private final TextbookDonationPostRepository textbookDonationPostRepository;
-     private final TextbookDonationMapper textbookDonationMapper;
+     private final TextbookDonationMapper textbookDonationMapper = new TextbookDonationMapperImpl();
     @Autowired
-    public TextbookDonationPostServiceImpl (TextbookDonationPostRepository textbookDonationPostRepository, TextbookDonationMapper textbookDonationMapper) {
+    public TextbookDonationPostServiceImpl (TextbookDonationPostRepository textbookDonationPostRepository) {
         this.textbookDonationPostRepository = textbookDonationPostRepository;
-        this.textbookDonationMapper = textbookDonationMapper;
     }
 
     @Override
@@ -30,7 +27,7 @@ public class TextbookDonationPostServiceImpl implements TextbookDonationPostServ
         textBookDonationPost.setCreatedAt(OffsetDateTime.now());
         textBookDonationPost.setPostId(UUID.randomUUID().toString());
         TextbookDonationPostEntity textbookDonationPostEntity = textbookDonationMapper.mapToEntity(textBookDonationPost);
-        return textbookDonationMapper.mapFromEntity(textbookDonationPostRepository.save(textbookDonationPostEntity));
+        return textbookDonationMapper.mapFromEntity(textbookDonationPostRepository.addToDonationPostEntity(textbookDonationPostEntity));
     }
 
     @Override
@@ -45,9 +42,9 @@ public class TextbookDonationPostServiceImpl implements TextbookDonationPostServ
     }
 
     @Override
-    public Optional<TextBookDonationPost> getTextbookDonationPost(String postId) {
+    public TextBookDonationPost getTextbookDonationPost(String postId) {
         log.info("Get Textbook Details for PostId: {}", postId);
-        return textbookDonationPostRepository.findByPostId(postId).map(textbookDonationMapper::mapFromEntity);
+        return textbookDonationMapper.mapFromEntity(textbookDonationPostRepository.findByPostId(postId));
     }
 
     @Override
