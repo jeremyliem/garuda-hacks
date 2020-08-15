@@ -1,6 +1,8 @@
 package com.example.booksharing.service;
 
 import com.example.booksharing.model.TextBookDonationPost;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 

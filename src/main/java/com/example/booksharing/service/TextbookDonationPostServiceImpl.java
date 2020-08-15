@@ -5,6 +5,7 @@ import com.example.booksharing.repository.TextbookDonationPostEntity;
 import com.example.booksharing.repository.TextbookDonationPostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -12,10 +13,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
+@Service
 public class TextbookDonationPostServiceImpl implements TextbookDonationPostService {
 
-     TextbookDonationPostRepository textbookDonationPostRepository;
-     TextbookDonationMapper textbookDonationMapper;
+     private final TextbookDonationPostRepository textbookDonationPostRepository;
+     private final TextbookDonationMapper textbookDonationMapper;
     @Autowired
     public TextbookDonationPostServiceImpl (TextbookDonationPostRepository textbookDonationPostRepository, TextbookDonationMapper textbookDonationMapper) {
         this.textbookDonationPostRepository = textbookDonationPostRepository;

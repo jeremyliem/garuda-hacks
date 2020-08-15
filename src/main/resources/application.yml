@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+mongodb:
+  connectionTimeoutMillis: 3000
+  socketTimeoutMillis: 10000
+  serverSelectionTimeoutMillis: 10000
+  name: database
+  uri: mongodb://localhost:27017
