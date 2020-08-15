@@ -23,9 +23,7 @@ public class TextbookRequestController {
     @GetMapping("textbook-request-post/{postId}")
     public ResponseEntity<TextBookRequestPost> getTextbookRequestPost(@PathVariable String postId) throws HttpServerErrorException{
         try {
-             return textbookRequestPostService.getTextbookRequestPost(postId)
-                    .map(ResponseEntity::ok)
-                    .orElse(ResponseEntity.notFound().build());
+             return new ResponseEntity<>(textbookRequestPostService.getTextbookRequestPost(postId), HttpStatus.OK);
         } catch (Exception e) {
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -64,7 +62,7 @@ public class TextbookRequestController {
     @GetMapping("textbook-request-post/{name}/{subject}/{author}")
     public List<TextBookRequestPost> searchTextbookRequestPost(@PathVariable String name, @PathVariable String subject, @PathVariable String author){
         try{
-            return textbookRequestPostService.searchTextbookRequestPost(name, subject, author);
+            return textbookRequestPostService.searchTextbookRequestPost(name);
         }catch (Exception e){
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
         }

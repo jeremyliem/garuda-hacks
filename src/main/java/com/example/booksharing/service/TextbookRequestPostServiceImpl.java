@@ -32,7 +32,7 @@ public class TextbookRequestPostServiceImpl implements TextbookRequestPostServic
         textBookRequestPost.setCreatedAt(OffsetDateTime.now());
         textBookRequestPost.setPostId(UUID.randomUUID().toString());
         TextbookRequestPostEntity textbookRequestPostEntity = textbookRequestMapper.mapToEntity(textBookRequestPost);
-        return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.save(textbookRequestPostEntity));
+        return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.addTextbookRequestPost(textbookRequestPostEntity));
     }
 
     @Override
@@ -47,9 +47,9 @@ public class TextbookRequestPostServiceImpl implements TextbookRequestPostServic
     }
 
     @Override
-    public Optional<TextBookRequestPost> getTextbookRequestPost(String postId) {
+    public TextBookRequestPost getTextbookRequestPost(String postId) {
         log.info("Get Textbook Details for PostId: {}", postId);
-        return textbookRequestPostRepository.findByPostId(postId).map(textbookRequestMapper::mapFromEntity);
+        return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.findByPostId(postId));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class TextbookRequestPostServiceImpl implements TextbookRequestPostServic
     }
 
     @Override
-    public List<TextBookRequestPost> searchTextbookRequestPost(String name, String subject, String author) {
-        return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.findBySearch(name, subject, author));
+    public List<TextBookRequestPost> searchTextbookRequestPost(String name) {
+        return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.findBySearch(name));
     }
 }

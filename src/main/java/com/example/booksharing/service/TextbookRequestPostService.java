@@ -10,7 +10,7 @@ public interface TextbookRequestPostService {
     TextBookRequestPost addTextbookRequestPost(TextBookRequestPost textBookRequestPost); //done
     List<TextBookRequestPost> getAllTextbookRequestPost();
     void deleteTextbookRequestPost(String postId);
-    Optional<TextBookRequestPost> getTextbookRequestPost(String postId); //done
+    TextBookRequestPost getTextbookRequestPost(String postId); //done
     void claimTextbookRequestPost(String postId);
-    List<TextBookRequestPost> searchTextbookRequestPost(String name, String subject, String author);
+    List<TextBookRequestPost> searchTextbookRequestPost(String name);
 }
