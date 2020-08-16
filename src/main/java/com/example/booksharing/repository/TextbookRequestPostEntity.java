@@ -1,6 +1,9 @@
 package com.example.booksharing.repository;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,9 +15,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-@Document(collection = "textbookDonationPost")
-public class TextbookDonationPostEntity {
+@Document(collection = "textbookRequestPost")
+public class TextbookRequestPostEntity {
     @Id
     @NonNull
     private String postId;
@@ -22,12 +24,6 @@ public class TextbookDonationPostEntity {
     private String name;
     private String description;
     private String location;
-    @NonNull
-    private String subject;
-    @NonNull
-    private URL imageURL;
-    private Set<String> tags;
     private String emailContact;
-    private Integer quantity;
     private Instant createdAt;
 }
