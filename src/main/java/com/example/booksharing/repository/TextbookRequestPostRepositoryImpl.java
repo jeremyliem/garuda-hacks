@@ -44,6 +44,7 @@ public class TextbookRequestPostRepositoryImpl implements TextbookRequestPostRep
     public void deleteByPostId(String postId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("postId").is(postId));
-        mongoTemplate.remove(query);
+        mongoTemplate.findAndRemove(query, TextbookRequestPostEntity.class);
+
     }
 }
