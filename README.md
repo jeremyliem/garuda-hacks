@@ -35,4 +35,12 @@ Remove a Request Post
 Search Request Post - Name/Location
 
 
+#### How to run locally
+
+1. Have a local MongoDB set up and started(a must)/ If you want to use another MongoDB hosted somewhere else - make sure to change the uri in the application.yaml file
+2. Run 'mvn clean install -U'
+3. Run Java Program from main application
+4. Send HTTP Requests from Postman or CURL like this localhost:80/textbook-request-post/ - for textbook request post API .
+Coming soon : Textbook Donation API
+
 
