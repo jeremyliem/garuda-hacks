@@ -28,9 +28,9 @@ public class TextbookRequestPostServiceImpl implements TextbookRequestPostServic
 
     @Override
     public TextBookRequestPost addTextbookRequestPost(TextBookRequestPost textBookRequestPost) {
-        log.info("Claim Textbook for PostId: {}", textBookRequestPost.getPostId());
         textBookRequestPost.setCreatedAt(OffsetDateTime.now());
         textBookRequestPost.setPostId(UUID.randomUUID().toString());
+        log.info("Claim Textbook for PostId: {}", textBookRequestPost.getPostId());
         TextbookRequestPostEntity textbookRequestPostEntity = textbookRequestMapper.mapToEntity(textBookRequestPost);
         return textbookRequestMapper.mapFromEntity(textbookRequestPostRepository.addTextbookRequestPost(textbookRequestPostEntity));
     }

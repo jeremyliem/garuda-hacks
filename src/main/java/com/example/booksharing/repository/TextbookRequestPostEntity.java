@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.net.URL;
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Set;
 
@@ -24,5 +25,5 @@ public class TextbookRequestPostEntity {
     private String description;
     private String location;
     private String emailContact;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

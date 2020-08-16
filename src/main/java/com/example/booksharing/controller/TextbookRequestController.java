@@ -78,7 +78,7 @@ public class TextbookRequestController {
         }
     }
 
-    @GetMapping("textbook-request-post/{id}")
+    @GetMapping("textbook-request-post/{id}/claim")
     public void claimTextbookRequestPost(@PathVariable String id){
         try{
             textbookRequestPostService.claimTextbookRequestPost(id);

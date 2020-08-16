@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.net.URL;
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Set;
 
@@ -28,5 +29,5 @@ public class TextbookDonationPostEntity {
     private Set<String> tags;
     private String emailContact;
     private Integer quantity;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }
