@@ -45,5 +45,6 @@ public class TextbookRequestPostRepositoryImpl implements TextbookRequestPostRep
         Query query = new Query();
         query.addCriteria(Criteria.where("postId").is(postId));
         mongoTemplate.findAndRemove(query, TextbookRequestPostEntity.class);
+
     }
 }
