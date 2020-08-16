@@ -59,8 +59,8 @@ public class TextbookRequestController {
     }
 
 
-    @GetMapping("textbook-request-post/{name}/{subject}/{author}")
-    public List<TextBookRequestPost> searchTextbookRequestPost(@PathVariable String name, @PathVariable String subject, @PathVariable String author){
+    @GetMapping("textbook-request-post/search/{name}")
+    public List<TextBookRequestPost> searchTextbookRequestPost(@PathVariable String name){
         try{
             return textbookRequestPostService.searchTextbookRequestPost(name);
         }catch (Exception e){
